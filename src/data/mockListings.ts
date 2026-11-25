@@ -1,0 +1,200 @@
+import { Listing } from "@/types/listing";
+
+export const CITIES = [
+  "Barchasi",
+  "Toshkent",
+  "Samarqand",
+  "Namangan",
+  "Buxoro",
+  "Farg'ona",
+  "Andijon",
+];
+
+export const ROOM_OPTIONS = [
+  { label: "Barchasi", value: "all" },
+  { label: "1 xona", value: "1" },
+  { label: "2 xona", value: "2" },
+  { label: "3 xona", value: "3" },
+  { label: "4+ xona", value: "4+" },
+];
+
+export const AMENITIES_OPTIONS = [
+  "Wi-Fi",
+  "Kir yuvish mashinasi",
+  "Konditsioner",
+  "Mebel",
+  "Muzlatkich",
+  "Avtoturargoh",
+  "Televizor",
+  "24/7 Xavfsizlik",
+];
+
+export const MOCK_LISTINGS: Listing[] = [
+  {
+    id: "uy-101",
+    title: "Yangi qurilgan zamonaviy 3 xonali kvartira",
+    category: "sale",
+    price: 118000,
+    currency: "USD",
+    city: "Toshkent",
+    district: "Mirzo Ulug'bek tumani",
+    address: "Toshkent, Mirzo Ulug'bek tumani, Buyuk Ipak Yo'li",
+    area_sqm: 92,
+    rooms: 3,
+    floor: "7 / 12 qavat",
+    isVerified: true,
+    status: "active",
+    contact_phone: "+998 90 123 45 67",
+    images: [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1000&q=80",
+    ],
+    description:
+      "Metro bekatiga 5 daqiqalik masofada joylashgan, yevro ta'mirli, barcha mebel va maishiy texnikalari bilan sotiladigan keng 3 xonali xonadon. Kadastr hujjatlari tayyor.",
+    amenities: ["Kadastr tayyor", "Mebel", "Konditsioner", "Avtoturargoh"],
+  },
+  {
+    id: "uy-102",
+    title: "Chilonzorda shinam 2 xonali oilaviy kvartira",
+    category: "rent",
+    price: 550,
+    currency: "USD",
+    pricePeriod: "oyiga",
+    city: "Toshkent",
+    district: "Chilonzor tumani",
+    address: "Toshkent, Chilonzor tumani, 9-kvartal",
+    area_sqm: 64,
+    rooms: 2,
+    floor: "4 / 9 qavat",
+    isVerified: true,
+    status: "active",
+    contact_phone: "+998 93 456 78 90",
+    images: [
+      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1000&q=80",
+    ],
+    description:
+      "Uzoq muddatga oila yoki tartibli ijarachilar uchun barcha sharoitlarga ega 2 xonali kvartira. Konditsioner, kir yuvish mashinasi, Wi-Fi va isitish tizimi mavjud.",
+    amenities: ["Wi-Fi", "Konditsioner", "Kir yuvish mashinasi", "Mebel"],
+  },
+  {
+    id: "uy-103",
+    title: "Talabalar shaharchasi yonida zamonaviy yotoqxona o'rni",
+    category: "student_dorm",
+    price: 1100000,
+    currency: "UZS",
+    pricePeriod: "oyiga",
+    city: "Toshkent",
+    district: "Olmazor tumani",
+    address: "Toshkent, Olmazor tumani, Talabalar ko'chasi, 14",
+    area_sqm: 24,
+    rooms: 1,
+    floor: "2 / 4 qavat",
+    student_gender: "boys",
+    available_spots: 3,
+    isVerified: true,
+    status: "active",
+    contact_phone: "+998 99 777 11 22",
+    nearUniversity: "O'zMU va TDTU (5 daqiqa piyoda)",
+    images: [
+      "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=1000&q=80",
+    ],
+    description:
+      "Talabalar uchun barcha qulayliklarga ega xususiy yotoqxona: tezkor Wi-Fi, dars qilish zonasi, umumiy oshxona, kir yuvish xonasi va 24/7 xavfsizlik tizimi.",
+    amenities: ["Wi-Fi", "Kir yuvish mashinasi", "24/7 Xavfsizlik", "Mebel"],
+  },
+  {
+    id: "uy-104",
+    title: "Samarqand markazida keng 4 xonali xonadon",
+    category: "sale",
+    price: 95000,
+    currency: "USD",
+    city: "Samarqand",
+    district: "Shohrux ko'chasi",
+    address: "Samarqand shahri, Shohrux ko'chasi, 42-uy",
+    area_sqm: 135,
+    rooms: 4,
+    floor: "3 / 7 qavat",
+    isVerified: true,
+    status: "active",
+    contact_phone: "+998 91 555 33 44",
+    images: [
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1000&q=80",
+    ],
+    description:
+      "Katta oilalar uchun mo'ljallangan 4 xonali hashamatli kvartira. 2 ta sanuzel, keng balkon, maktab va bog'cha shundoqqina uyning yonida.",
+    amenities: ["Mebel", "Konditsioner", "Avtoturargoh", "Televizor"],
+  },
+  {
+    id: "uy-105",
+    title: "NamDU talabalari uchun qulay 2 xonali ijara uy",
+    category: "student_dorm",
+    price: 950000,
+    currency: "UZS",
+    pricePeriod: "oyiga / kishi",
+    city: "Namangan",
+    district: "Boburshoh ko'chasi",
+    address: "Namangan shahri, Boburshoh ko'chasi, 18-uy",
+    area_sqm: 58,
+    rooms: 2,
+    floor: "3 / 5 qavat",
+    student_gender: "girls",
+    available_spots: 2,
+    isVerified: false,
+    status: "active",
+    contact_phone: "+998 94 321 98 76",
+    nearUniversity: "NamDU (7 daqiqa piyoda)",
+    images: [
+      "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1000&q=80",
+    ],
+    description:
+      "Talaba qizlar uchun alohida jihozlangan 2 xonali kvartira. Har bir talaba uchun alohida karavot, shkaf va yozuv stoli mavjud.",
+    amenities: ["Wi-Fi", "Mebel", "Muzlatkich", "Kir yuvish mashinasi"],
+  },
+  {
+    id: "uy-106",
+    title: "Buxoro markazida ta'mirlangan 3 xonali kvartira",
+    category: "rent",
+    price: 4800000,
+    currency: "UZS",
+    pricePeriod: "oyiga",
+    city: "Buxoro",
+    district: "Ibn Sino ko'chasi",
+    address: "Buxoro shahri, Ibn Sino ko'chasi, 9-uy",
+    area_sqm: 85,
+    rooms: 3,
+    floor: "5 / 9 qavat",
+    isVerified: true,
+    status: "active",
+    contact_phone: "+998 97 888 22 11",
+    images: [
+      "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1616137466211-f939a420be84?auto=format&fit=crop&w=1000&q=80",
+      "https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=1000&q=80",
+    ],
+    description:
+      "Markaziy bog' yaqinida joylashgan, shinam va yorug' 3 xonali kvartira. Toza pod'ezd, tinch qo'shnilar, barcha zamonaviy maishiy texnikalar bilan.",
+    amenities: ["Mebel", "Konditsioner", "Televizor", "Muzlatkich"],
+  },
+];
+
+export function formatListingPrice(listing: Listing): string {
+  if (listing.currency === "USD") {
+    const formatted = listing.price.toLocaleString("en-US");
+    return listing.pricePeriod
+      ? `$${formatted} / ${listing.pricePeriod}`
+      : `$${formatted}`;
+  }
+  const formatted = listing.price.toLocaleString("ru-RU").replace(/,/g, " ");
+  return listing.pricePeriod
+    ? `${formatted} so'm / ${listing.pricePeriod}`
+    : `${formatted} so'm`;
+}
