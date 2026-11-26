@@ -337,14 +337,14 @@ export default function PhoneAuthGate({
     const formattedTimer = `00:${String(timer).padStart(2, "0")}`;
 
     return (
-      <div className="relative flex min-h-screen flex-col items-center justify-center bg-[url('/images/hero-bg.jpg')] bg-cover bg-center px-4 py-8">
-        {/* To'q ko'k shaffof qatlam */}
+      <div className="relative flex min-h-screen flex-col items-center justify-center bg-[#081B33] bg-[url('/images/hero-bg.jpg')] bg-cover bg-center px-4 py-8">
+        {/* To'q ko'k shaffof qatlam — orqadagi rasm tiniq ko'rinib turishi uchun yengilroq */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-br from-[#07152B]/90 via-[#0B1F3A]/85 to-[#07152B]/90"
+          className="absolute inset-0 bg-gradient-to-br from-[#07152B]/60 via-[#0B1F3A]/45 to-[#07152B]/65"
         />
 
-        <div className="relative z-10 w-full max-w-md rounded-3xl border border-white/20 bg-white/10 p-6 text-white shadow-2xl backdrop-blur-xl sm:p-8">
+        <div className="relative z-10 w-full max-w-md rounded-3xl border border-white/25 bg-[#081B33]/65 p-6 text-white shadow-2xl backdrop-blur-xl sm:p-8">
           {/* Logo va sarlavha */}
           <div className="flex flex-col items-center text-center">
             <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#F59E0B] to-[#D97706] text-slate-950 shadow-lg shadow-[#F59E0B]/30">
