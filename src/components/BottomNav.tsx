@@ -36,14 +36,14 @@ export default function BottomNav({
           href="/"
           className={`relative flex flex-col items-center justify-center gap-1 py-1 text-[11px] font-semibold transition-colors ${
             current === "home"
-              ? "text-[#1D61E7]"
-              : "text-slate-500 hover:text-slate-800"
+              ? "text-[#0B1F3A] dark:text-[#F59E0B]"
+              : "text-slate-500 hover:text-slate-800 dark:text-slate-400"
           }`}
         >
           <Home className="h-5 w-5" />
           <span>Bosh sahifa</span>
           {current === "home" && (
-            <span className="absolute bottom-0.5 h-0.5 w-8 rounded-full bg-[#1D61E7]" />
+            <span className="absolute bottom-0.5 h-0.5 w-8 rounded-full bg-[#F59E0B]" />
           )}
         </Link>
 
@@ -54,32 +54,32 @@ export default function BottomNav({
             onClick={onSearchClick}
             className={`relative flex flex-col items-center justify-center gap-1 py-1 text-[11px] font-semibold transition-colors ${
               current === "search"
-                ? "text-[#1D61E7]"
-                : "text-slate-500 hover:text-slate-800"
+                ? "text-[#0B1F3A] dark:text-[#F59E0B]"
+                : "text-slate-500 hover:text-slate-800 dark:text-slate-400"
             }`}
           >
             <Search className="h-5 w-5" />
             <span>Qidirish</span>
             {current === "search" && (
-              <span className="absolute bottom-0.5 h-0.5 w-8 rounded-full bg-[#1D61E7]" />
+              <span className="absolute bottom-0.5 h-0.5 w-8 rounded-full bg-[#F59E0B]" />
             )}
           </button>
         ) : (
           <Link
             href="/#search-bar"
-            className="relative flex flex-col items-center justify-center gap-1 py-1 text-[11px] font-semibold text-slate-500 transition-colors hover:text-slate-800"
+            className="relative flex flex-col items-center justify-center gap-1 py-1 text-[11px] font-semibold text-slate-500 transition-colors hover:text-slate-800 dark:text-slate-400"
           >
             <Search className="h-5 w-5" />
             <span>Qidirish</span>
           </Link>
         )}
 
-        {/* 3. E'lon joylash (Markaziy + tugma) */}
+        {/* 3. E'lon joylash (Markaziy oltin + tugma) */}
         <div className="flex items-center justify-center">
           <Link
             href="/create-listing"
             aria-label="E'lon joylash"
-            className="-mt-6 flex h-14 w-14 items-center justify-center rounded-full bg-[#1D61E7] text-white shadow-lg shadow-[#1D61E7]/35 ring-4 ring-[#EEF2F8] transition-transform hover:scale-105 active:scale-95 dark:bg-blue-500 dark:ring-[#0B1120]"
+            className="-mt-6 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[#F59E0B] to-[#D97706] text-slate-950 shadow-lg shadow-[#F59E0B]/35 ring-4 ring-[#EEF2F8] transition-transform hover:scale-105 active:scale-95 dark:ring-[#0B1120]"
           >
             <Plus className="h-7 w-7 stroke-[2.5]" />
           </Link>
@@ -90,14 +90,14 @@ export default function BottomNav({
           href="/dashboard?tab=favorites"
           className={`relative flex flex-col items-center justify-center gap-1 py-1 text-[11px] font-semibold transition-colors ${
             current === "favorites"
-              ? "text-[#1D61E7]"
-              : "text-slate-500 hover:text-slate-800"
+              ? "text-[#0B1F3A] dark:text-[#F59E0B]"
+              : "text-slate-500 hover:text-slate-800 dark:text-slate-400"
           }`}
         >
           <Heart className="h-5 w-5" />
           <span>Sevimlilar</span>
           {current === "favorites" && (
-            <span className="absolute bottom-0.5 h-0.5 w-8 rounded-full bg-[#1D61E7]" />
+            <span className="absolute bottom-0.5 h-0.5 w-8 rounded-full bg-[#F59E0B]" />
           )}
         </Link>
 
@@ -108,14 +108,14 @@ export default function BottomNav({
             onClick={onProfileClick}
             className={`relative flex flex-col items-center justify-center gap-1 py-1 text-[11px] font-semibold transition-colors ${
               current === "profile"
-                ? "text-[#1D61E7]"
-                : "text-slate-500 hover:text-slate-800"
+                ? "text-[#0B1F3A] dark:text-[#F59E0B]"
+                : "text-slate-500 hover:text-slate-800 dark:text-slate-400"
             }`}
           >
             <User className="h-5 w-5" />
             <span>Profil</span>
             {current === "profile" && (
-              <span className="absolute bottom-0.5 h-0.5 w-8 rounded-full bg-[#1D61E7]" />
+              <span className="absolute bottom-0.5 h-0.5 w-8 rounded-full bg-[#F59E0B]" />
             )}
           </button>
         ) : (
@@ -123,14 +123,14 @@ export default function BottomNav({
             href="/dashboard"
             className={`relative flex flex-col items-center justify-center gap-1 py-1 text-[11px] font-semibold transition-colors ${
               current === "profile"
-                ? "text-[#1D61E7]"
-                : "text-slate-500 hover:text-slate-800"
+                ? "text-[#0B1F3A] dark:text-[#F59E0B]"
+                : "text-slate-500 hover:text-slate-800 dark:text-slate-400"
             }`}
           >
             <User className="h-5 w-5" />
             <span>Profil</span>
             {current === "profile" && (
-              <span className="absolute bottom-0.5 h-0.5 w-8 rounded-full bg-[#1D61E7]" />
+              <span className="absolute bottom-0.5 h-0.5 w-8 rounded-full bg-[#F59E0B]" />
             )}
           </Link>
         )}

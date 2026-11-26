@@ -133,10 +133,10 @@ export default function AppListingCard({ listing }: AppListingCardProps) {
       <div className="flex flex-1 flex-col justify-between p-3 sm:p-3.5">
         <div>
           <div className="flex items-baseline justify-between gap-1.5">
-            <p className="truncate text-sm font-extrabold text-slate-900 sm:text-base dark:text-white">
+            <p className="truncate text-sm font-extrabold text-[#0B1F3A] sm:text-base dark:text-[#F59E0B]">
               {formatCompactPrice(listing)}
             </p>
-            <span className="shrink-0 rounded-lg bg-[#EAF2FF] px-2 py-0.5 text-[10px] font-bold text-[#1D61E7] sm:text-[11px] dark:bg-blue-500/15 dark:text-blue-400">
+            <span className="shrink-0 rounded-lg bg-[#0B1F3A]/8 px-2 py-0.5 text-[10px] font-bold text-[#0B1F3A] sm:text-[11px] dark:bg-[#F59E0B]/15 dark:text-[#F59E0B]">
               {rightLabel}
             </span>
           </div>

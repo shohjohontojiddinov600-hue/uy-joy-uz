@@ -324,11 +324,11 @@ export default function PhoneAuthGate({
 
   if (!isReady) {
     return (
-      <div className="flex min-h-screen flex-col items-center justify-center bg-[#F4F7FC]">
-        <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#1D61E7] text-white shadow-lg shadow-[#1D61E7]/25">
+      <div className="flex min-h-screen flex-col items-center justify-center bg-[#081B33]">
+        <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#F59E0B] to-[#D97706] text-slate-950 shadow-lg shadow-[#F59E0B]/25">
           <Home className="h-7 w-7" />
         </div>
-        <Loader2 className="mt-4 h-6 w-6 animate-spin text-[#1D61E7]" />
+        <Loader2 className="mt-4 h-6 w-6 animate-spin text-[#F59E0B]" />
       </div>
     );
   }
@@ -337,17 +337,23 @@ export default function PhoneAuthGate({
     const formattedTimer = `00:${String(timer).padStart(2, "0")}`;
 
     return (
-      <div className="flex min-h-screen flex-col items-center justify-center bg-[#F4F7FC] px-4 py-8">
-        <div className="w-full max-w-md rounded-3xl bg-white p-6 shadow-xl shadow-slate-200/70 ring-1 ring-slate-100 sm:p-8">
+      <div className="relative flex min-h-screen flex-col items-center justify-center bg-[url('/images/hero-bg.jpg')] bg-cover bg-center px-4 py-8">
+        {/* To'q ko'k shaffof qatlam */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-br from-[#07152B]/90 via-[#0B1F3A]/85 to-[#07152B]/90"
+        />
+
+        <div className="relative z-10 w-full max-w-md rounded-3xl border border-white/20 bg-white/10 p-6 text-white shadow-2xl backdrop-blur-xl sm:p-8">
           {/* Logo va sarlavha */}
           <div className="flex flex-col items-center text-center">
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#1D61E7] text-white shadow-md shadow-[#1D61E7]/30">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#F59E0B] to-[#D97706] text-slate-950 shadow-lg shadow-[#F59E0B]/30">
               <Home className="h-7 w-7" />
             </div>
-            <h1 className="mt-3 text-2xl font-extrabold tracking-tight text-slate-900">
-              Uy Joy
+            <h1 className="mt-3 text-2xl font-extrabold tracking-tight text-white">
+              Uy <span className="text-[#F59E0B]">Joy</span>
             </h1>
-            <p className="mt-1.5 text-sm leading-relaxed text-slate-500">
+            <p className="mt-1.5 text-sm leading-relaxed text-slate-200">
               Xush kelibsiz! Davom etish uchun telefon raqamingizni kiriting
             </p>
           </div>
@@ -356,19 +362,19 @@ export default function PhoneAuthGate({
           <div className="mt-6 flex items-center justify-center gap-2">
             <span
               className={`h-1.5 w-12 rounded-full transition-colors ${
-                step === 1 ? "bg-[#1D61E7]" : "bg-[#1D61E7]/30"
+                step === 1 ? "bg-[#F59E0B]" : "bg-[#F59E0B]/40"
               }`}
             />
             <span
               className={`h-1.5 w-12 rounded-full transition-colors ${
-                step === 2 ? "bg-[#1D61E7]" : "bg-slate-200"
+                step === 2 ? "bg-[#F59E0B]" : "bg-white/20"
               }`}
             />
           </div>
 
           {errorMsg && (
-            <div className="mt-5 flex items-start gap-2.5 rounded-2xl border border-rose-200 bg-rose-50 p-3.5 text-xs font-medium text-rose-700">
-              <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-rose-500" />
+            <div className="mt-5 flex items-start gap-2.5 rounded-2xl border border-rose-400/40 bg-rose-500/20 p-3.5 text-xs font-medium text-rose-100">
+              <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-rose-300" />
               <span>{errorMsg}</span>
             </div>
           )}
@@ -376,29 +382,29 @@ export default function PhoneAuthGate({
           {step === 1 ? (
             <form onSubmit={handleStep1Submit} className="mt-6 space-y-4">
               <div>
-                <label className="text-xs font-bold text-slate-700">
+                <label className="text-xs font-bold text-slate-200">
                   Ism va familiya *
                 </label>
                 <div className="relative mt-1.5">
-                  <UserIcon className="pointer-events-none absolute top-1/2 left-3.5 h-4 w-4 -translate-y-1/2 text-slate-400" />
+                  <UserIcon className="pointer-events-none absolute top-1/2 left-3.5 h-4 w-4 -translate-y-1/2 text-[#F59E0B]" />
                   <input
                     type="text"
                     required
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     placeholder="Masalan: Azizbek Karimov"
-                    className="w-full rounded-2xl border border-slate-200 bg-slate-50/60 py-3 pr-4 pl-10 text-sm text-slate-900 focus:border-[#1D61E7] focus:bg-white focus:outline-none"
+                    className="w-full rounded-2xl border border-white/20 bg-white/10 py-3 pr-4 pl-10 text-sm text-white placeholder:text-slate-300 focus:border-[#F59E0B] focus:bg-white/15 focus:outline-none"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="text-xs font-bold text-slate-700">
+                <label className="text-xs font-bold text-slate-200">
                   Telefon raqamingiz *
                 </label>
-                <div className="mt-1.5 flex items-center overflow-hidden rounded-2xl border border-slate-200 bg-slate-50/60 focus-within:border-[#1D61E7] focus-within:bg-white">
-                  <div className="flex items-center gap-1.5 border-r border-slate-200 bg-slate-100/80 px-3.5 py-3 text-sm font-bold text-slate-800">
-                    <Phone className="h-4 w-4 text-[#1D61E7]" />
+                <div className="mt-1.5 flex items-center overflow-hidden rounded-2xl border border-white/20 bg-white/10 focus-within:border-[#F59E0B] focus-within:bg-white/15">
+                  <div className="flex items-center gap-1.5 border-r border-white/20 bg-white/10 px-3.5 py-3 text-sm font-bold text-white">
+                    <Phone className="h-4 w-4 text-[#F59E0B]" />
                     <span>+998</span>
                   </div>
                   <input
@@ -408,7 +414,7 @@ export default function PhoneAuthGate({
                     value={formatUzPhoneInput(phoneDigits)}
                     onChange={handlePhoneInputChange}
                     placeholder="(90) 123-45-67"
-                    className="w-full bg-transparent px-3.5 py-3 text-sm font-semibold tracking-wide text-slate-900 placeholder:font-normal placeholder:text-slate-400 focus:outline-none"
+                    className="w-full bg-transparent px-3.5 py-3 text-sm font-semibold tracking-wide text-white placeholder:font-normal placeholder:text-slate-300 focus:outline-none"
                   />
                 </div>
               </div>
@@ -416,7 +422,7 @@ export default function PhoneAuthGate({
               <button
                 type="submit"
                 disabled={loading}
-                className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#1D61E7] py-3.5 text-sm font-bold text-white shadow-lg shadow-[#1D61E7]/25 transition-all hover:bg-[#1751c4] disabled:opacity-60"
+                className="flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#F59E0B] to-[#D97706] py-3.5 text-sm font-extrabold text-slate-950 shadow-lg shadow-[#F59E0B]/25 transition-all hover:brightness-110 disabled:opacity-60"
               >
                 {loading ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
@@ -430,15 +436,15 @@ export default function PhoneAuthGate({
             </form>
           ) : (
             <form onSubmit={handleVerifyOtp} className="mt-6 space-y-5">
-              <div className="rounded-2xl bg-[#F4F7FC] p-3.5 text-center">
-                <p className="text-xs text-slate-600">
+              <div className="rounded-2xl border border-white/15 bg-white/10 p-3.5 text-center">
+                <p className="text-xs text-slate-200">
                   Tasdiqlash kodi quyidagi raqamga yuborildi:
                 </p>
-                <p className="mt-1 text-sm font-extrabold text-slate-900">
+                <p className="mt-1 text-sm font-extrabold text-white">
                   {formatUzPhoneDisplay(phoneDigits)}
                 </p>
                 {isDemoOtpMode && (
-                  <p className="mt-1.5 inline-flex items-center gap-1 rounded-full bg-blue-100/80 px-2.5 py-0.5 text-[11px] font-semibold text-[#1D61E7]">
+                  <p className="mt-1.5 inline-flex items-center gap-1 rounded-full bg-[#F59E0B]/20 px-2.5 py-0.5 text-[11px] font-semibold text-[#FCD34D]">
                     <CheckCircle2 className="h-3 w-3" />
                     Test rejimi: istalgan 4 xonali kod (masalan: 1234)
                   </p>
@@ -461,7 +467,7 @@ export default function PhoneAuthGate({
                     onKeyDown={(e) => handleOtpKeyDown(idx, e)}
                     onPaste={handleOtpPaste}
                     aria-label={`Kod raqami ${idx + 1}`}
-                    className="h-14 w-14 rounded-2xl border-2 border-slate-200 bg-slate-50/60 text-center text-xl font-extrabold text-slate-900 transition-colors focus:border-[#1D61E7] focus:bg-white focus:outline-none"
+                    className="h-14 w-14 rounded-2xl border-2 border-white/25 bg-white/10 text-center text-xl font-extrabold text-white transition-colors focus:border-[#F59E0B] focus:bg-white/20 focus:outline-none"
                   />
                 ))}
               </div>
@@ -469,7 +475,7 @@ export default function PhoneAuthGate({
               <button
                 type="submit"
                 disabled={loading}
-                className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#1D61E7] py-3.5 text-sm font-bold text-white shadow-lg shadow-[#1D61E7]/25 transition-all hover:bg-[#1751c4] disabled:opacity-60"
+                className="flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#F59E0B] to-[#D97706] py-3.5 text-sm font-extrabold text-slate-950 shadow-lg shadow-[#F59E0B]/25 transition-all hover:brightness-110 disabled:opacity-60"
               >
                 {loading ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
@@ -485,21 +491,21 @@ export default function PhoneAuthGate({
                     setStep(1);
                     setErrorMsg(null);
                   }}
-                  className="inline-flex items-center gap-1 font-semibold text-slate-600 hover:text-[#1D61E7]"
+                  className="inline-flex items-center gap-1 font-semibold text-slate-200 hover:text-[#F59E0B]"
                 >
                   <ArrowLeft className="h-3.5 w-3.5" />
                   <span>Raqamni o&apos;zgartirish</span>
                 </button>
 
                 {timer > 0 ? (
-                  <span className="font-medium text-slate-400">
+                  <span className="font-medium text-slate-300">
                     Kodni qayta yuborish {formattedTimer}
                   </span>
                 ) : (
                   <button
                     type="button"
                     onClick={sendOtpCode}
-                    className="font-bold text-[#1D61E7] hover:underline"
+                    className="font-bold text-[#F59E0B] hover:underline"
                   >
                     Qayta yuborish
                   </button>
@@ -508,8 +514,8 @@ export default function PhoneAuthGate({
             </form>
           )}
 
-          <div className="mt-6 flex items-center justify-center gap-1.5 border-t border-slate-100 pt-4 text-[11px] text-slate-400">
-            <ShieldCheck className="h-4 w-4 text-[#1D61E7]" />
+          <div className="mt-6 flex items-center justify-center gap-1.5 border-t border-white/15 pt-4 text-[11px] text-slate-300">
+            <ShieldCheck className="h-4 w-4 text-[#F59E0B]" />
             <span>Ma&apos;lumotlaringiz xavfsiz himoyalangan</span>
           </div>
         </div>

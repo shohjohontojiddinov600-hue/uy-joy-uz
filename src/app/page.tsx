@@ -7,6 +7,7 @@ import {
   ArrowRight,
   Bell,
   Building2,
+  GraduationCap,
   Home,
   KeyRound,
   MapPin,
@@ -226,12 +227,12 @@ export default function HomePage() {
         {/* 1. YUQORI HEADER (Glassmorphism Sticky Top Bar) */}
         <header className="sticky top-3 z-30 flex items-center justify-between gap-3 rounded-2xl border border-white/60 bg-white/75 px-3.5 py-2.5 shadow-[0_8px_30px_rgb(0,0,0,0.06)] backdrop-blur-xl transition-colors dark:border-slate-700/60 dark:bg-[#151F32]/80 dark:shadow-[0_8px_30px_rgb(0,0,0,0.35)]">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-[#1D61E7] to-[#1240A8] text-white shadow-md shadow-[#1D61E7]/25">
+            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-[#081B33] to-[#0F2D54] text-[#F59E0B] shadow-md shadow-[#081B33]/25 ring-1 ring-[#F59E0B]/30">
               <Home className="h-5 w-5" />
             </div>
             <div>
-              <h1 className="text-base font-extrabold tracking-tight text-slate-900 leading-tight sm:text-lg dark:text-white">
-                Uy Joy
+              <h1 className="text-base font-extrabold tracking-tight text-[#081B33] leading-tight sm:text-lg dark:text-white">
+                Uy <span className="text-[#D97706] dark:text-[#F59E0B]">Joy</span>
               </h1>
               <p className="text-[11px] font-medium text-slate-500 dark:text-slate-400">
                 Orzuyingizdagi uy shu yerda!
@@ -347,56 +348,79 @@ export default function HomePage() {
           )}
         </div>
 
-        {/* 3. ASOSIY PROMO BANNER (Hero Card) */}
-        <section className="relative mt-5 overflow-hidden rounded-3xl bg-gradient-to-br from-[#EAF2FF] via-[#DCE9FF] to-[#C8DDFF] p-5 shadow-[0_10px_30px_-5px_rgba(29,97,231,0.14)] sm:p-8 dark:from-[#16233B] dark:via-[#1A2B4B] dark:to-[#132038] dark:ring-1 dark:ring-slate-700/60">
-          {/* Slider nuqtalari tepa o'ng burchakda */}
-          <div className="absolute top-4 right-4 z-10 flex items-center gap-1.5 rounded-full bg-white/75 px-2.5 py-1 backdrop-blur-xs dark:bg-slate-900/65">
-            {PROMO_SLIDES.map((_, idx) => (
-              <button
-                key={idx}
-                type="button"
-                onClick={() => setPromoIndex(idx)}
-                aria-label={`Slayd ${idx + 1}`}
-                className={`h-1.5 rounded-full transition-all ${
-                  promoIndex === idx
-                    ? "w-5 bg-[#1D61E7] dark:bg-blue-400"
-                    : "w-1.5 bg-slate-400/60 hover:bg-slate-500"
-                }`}
-              />
-            ))}
-          </div>
+        {/* 3. ASOSIY PROMO BANNER (Navy & Gold Premium Hero Card) */}
+        <section className="relative mt-5 overflow-hidden rounded-3xl bg-[#081B33] bg-[url('/images/hero-bg.jpg')] bg-cover bg-center shadow-[0_14px_40px_-8px_rgba(8,27,51,0.45)] ring-1 ring-[#F59E0B]/25">
+          {/* Chap tomondan o'ngga to'q ko'k yoy/gradient qatlam — o'ngda bino ochiq ko'rinadi */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-gradient-to-r from-[#081B33] via-[#081B33]/92 to-[#081B33]/15"
+          />
 
-          <div className="grid grid-cols-12 items-center gap-4">
-            <div className="col-span-7">
-              <h2 className="text-xl font-extrabold leading-tight text-slate-900 sm:text-3xl dark:text-white">
-                {activePromo.title}
-              </h2>
-              <p className="mt-2 text-xs leading-relaxed text-slate-600 sm:text-sm dark:text-slate-300">
-                {activePromo.subtitle}
-              </p>
-              <button
-                type="button"
-                onClick={() => {
-                  document
-                    .getElementById("popular-listings")
-                    ?.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="mt-4 inline-flex items-center gap-1.5 rounded-2xl bg-gradient-to-r from-[#1D61E7] to-[#1240A8] px-4 py-2.5 text-xs font-bold text-white shadow-md shadow-[#1D61E7]/30 transition-all hover:brightness-110 sm:px-5 sm:py-3 sm:text-sm"
-              >
-                <span>Qidirishni boshlash</span>
-                <ArrowRight className="h-4 w-4" />
-              </button>
+          <div className="relative z-10 max-w-xl p-5 sm:p-8">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#F59E0B]/35 bg-[#F59E0B]/15 px-3 py-1 text-[11px] font-bold text-[#F59E0B]">
+              <Home className="h-3.5 w-3.5" />
+              <span>PREMIUM KO&apos;CHMAS MULK</span>
             </div>
 
-            <div className="col-span-5 flex justify-end">
-              <div className="aspect-[4/3] w-full max-w-[230px] overflow-hidden rounded-2xl bg-white/50 shadow-md ring-2 ring-white/80 dark:ring-slate-600/50">
-                <img
-                  src={activePromo.image}
-                  alt="Zamonaviy turar-joy binosi"
-                  className="h-full w-full object-cover"
-                />
-              </div>
+            <h2 className="mt-3 text-2xl font-black tracking-tight text-white sm:text-4xl">
+              UY JOY <span className="text-[#F59E0B]">SOTUV</span>
+            </h2>
+            <p className="mt-1.5 text-xs font-medium text-slate-200 sm:text-sm">
+              Orzudagi uy endi haqiqat bo&apos;lsin!
+            </p>
+
+            {/* 4 ta kichik ikonka-kartochka */}
+            <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
+              {[
+                {
+                  label: "Domlar",
+                  icon: Building2,
+                  action: () => setFilters((p) => ({ ...p, category: "sale" })),
+                },
+                {
+                  label: "Kvartiralar",
+                  icon: Home,
+                  action: () => setFilters((p) => ({ ...p, category: "rent" })),
+                },
+                {
+                  label: "Talabalar joyi",
+                  icon: GraduationCap,
+                  action: () =>
+                    setFilters((p) => ({ ...p, category: "student_dorm" })),
+                },
+                {
+                  label: "Yer uchastkalari",
+                  icon: MapPin,
+                  action: () => setIsMapModalOpen(true),
+                },
+              ].map((item) => {
+                const Icon = item.icon;
+                return (
+                  <button
+                    key={item.label}
+                    type="button"
+                    onClick={item.action}
+                    className="flex items-center gap-2 rounded-xl border border-white/15 bg-[#0B1F3A]/80 px-2.5 py-2 text-left text-[11px] font-semibold text-white backdrop-blur-xs transition-colors hover:border-[#F59E0B]/60 hover:bg-[#0B1F3A]"
+                  >
+                    <Icon className="h-3.5 w-3.5 shrink-0 text-[#F59E0B]" />
+                    <span className="truncate">{item.label}</span>
+                  </button>
+                );
+              })}
             </div>
+
+            <button
+              type="button"
+              onClick={() => {
+                document
+                  .getElementById("popular-listings")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="mt-5 inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-[#F59E0B] to-[#D97706] px-5 py-3 text-xs font-extrabold text-slate-950 shadow-lg shadow-[#F59E0B]/30 transition-all hover:brightness-110 sm:text-sm"
+            >
+              <span>Batafsil ma&apos;lumot / Qidirish</span>
+              <ArrowRight className="h-4 w-4" />
+            </button>
           </div>
         </section>
 
@@ -479,7 +503,7 @@ export default function HomePage() {
                   }
                   className={`shrink-0 rounded-full px-4 py-2 text-xs font-bold transition-all ${
                     isActive
-                      ? "bg-gradient-to-r from-[#1D61E7] to-[#1240A8] text-white shadow-md shadow-[#1D61E7]/25"
+                      ? "bg-gradient-to-r from-[#0B1F3A] to-[#153663] text-[#F59E0B] shadow-md shadow-[#0B1F3A]/25 ring-1 ring-[#F59E0B]/40"
                       : "bg-white/90 text-slate-700 shadow-xs ring-1 ring-slate-200/80 hover:bg-white dark:bg-[#151F32] dark:text-slate-200 dark:ring-slate-700/70 dark:hover:bg-slate-800"
                   }`}
                 >
@@ -541,16 +565,16 @@ export default function HomePage() {
 
         {/* 6. ISHONCH BANNERI (Xavfsiz bitim) */}
         <section className="mt-7">
-          <div className="flex items-center justify-between gap-3 rounded-2xl border border-[#CFE0FF] bg-[#EAF2FF]/90 p-4 shadow-xs backdrop-blur-xs sm:p-5 dark:border-slate-700/70 dark:bg-[#151F32]/90">
+          <div className="flex items-center justify-between gap-3 rounded-2xl border border-[#F59E0B]/30 bg-gradient-to-r from-[#081B33] to-[#0F2D54] p-4 shadow-md sm:p-5">
             <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white text-[#1D61E7] shadow-xs dark:bg-blue-500/15 dark:text-blue-400">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#F59E0B]/15 text-[#F59E0B] ring-1 ring-[#F59E0B]/30">
                 <ShieldCheck className="h-6 w-6" />
               </div>
               <div>
-                <p className="text-xs font-extrabold text-slate-900 sm:text-sm dark:text-white">
+                <p className="text-xs font-extrabold text-white sm:text-sm">
                   Xavfsiz bitim — Biz bilan xavfsiz xarid qiling
                 </p>
-                <p className="mt-0.5 text-[11px] text-slate-600 sm:text-xs dark:text-slate-400">
+                <p className="mt-0.5 text-[11px] text-slate-300 sm:text-xs">
                   E&apos;lon egalari tekshiriladi, shubhali oldindan to&apos;lovlardan
                   himoya.
                 </p>
@@ -560,7 +584,7 @@ export default function HomePage() {
             <button
               type="button"
               onClick={() => setIsSafetyModalOpen(true)}
-              className="inline-flex shrink-0 items-center gap-1 rounded-xl bg-white px-3 py-2 text-xs font-bold text-[#1D61E7] shadow-xs transition-colors hover:bg-[#1D61E7] hover:text-white dark:bg-slate-800 dark:text-blue-400 dark:hover:bg-[#1D61E7] dark:hover:text-white"
+              className="inline-flex shrink-0 items-center gap-1 rounded-xl bg-gradient-to-r from-[#F59E0B] to-[#D97706] px-3.5 py-2 text-xs font-extrabold text-slate-950 shadow-xs transition-all hover:brightness-110"
             >
               <span>Batafsil</span>
               <ArrowRight className="h-3.5 w-3.5" />
