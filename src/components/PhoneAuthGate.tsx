@@ -337,7 +337,7 @@ export default function PhoneAuthGate({
     const formattedTimer = `00:${String(timer).padStart(2, "0")}`;
 
     return (
-      <div className="relative flex min-h-screen flex-col justify-end overflow-hidden bg-[#061325] px-4 py-6 md:justify-center md:px-10 lg:px-16">
+      <div className="relative flex min-h-screen flex-col justify-end overflow-hidden bg-[#061325] px-4 pt-56 pb-6 md:justify-center md:px-10 md:py-8 lg:px-16">
         {/* Telefon uchun vertikal orqa fon */}
         <div
           aria-hidden="true"
@@ -352,13 +352,13 @@ export default function PhoneAuthGate({
         {/* Telefonda pastki forma uchun, noutbukda o'ng tarafdagi forma uchun silliq gradient qatlam */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#061325]/95 via-[#081B33]/55 to-transparent md:bg-gradient-to-r md:from-[#061325]/15 md:via-[#081B33]/40 md:to-[#061325]/90"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#061325] via-[#081B33]/65 to-transparent md:bg-gradient-to-r md:from-[#061325]/10 md:via-[#081B33]/35 md:to-[#061325]/90"
         />
 
         <div className="relative z-10 mx-auto flex w-full max-w-6xl justify-center md:justify-end">
           {/* O'ng / Pastki qism: Ro'yxatdan o'tish va kirish kartochkasi */}
           <div className="w-full max-w-md">
-            <div className="rounded-3xl border border-white/20 bg-[#081B33]/80 p-6 text-white shadow-2xl backdrop-blur-xl sm:p-8">
+            <div className="rounded-3xl border border-white/20 bg-[#081B33]/78 p-5 text-white shadow-2xl backdrop-blur-xl sm:p-8">
           {/* Logo va sarlavha */}
           <div className="flex flex-col items-center text-center">
             <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#F59E0B] to-[#D97706] text-slate-950 shadow-lg shadow-[#F59E0B]/30">
