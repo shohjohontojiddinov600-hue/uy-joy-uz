@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { Building2, LogOut, Menu, Plus, User, X } from "lucide-react";
 import { ListingCategory } from "@/types/listing";
 
@@ -86,10 +87,14 @@ export default function Navbar({
         <div className="hidden md:flex items-center gap-3">
           {displayName ? (
             <div className="flex items-center gap-2">
-              <div className="inline-flex items-center gap-2 rounded-xl border border-emerald-200 bg-emerald-50/70 px-3 py-2 text-xs font-semibold text-[#0F2942]">
+              <Link
+                href="/dashboard"
+                title="Shaxsiy kabinet"
+                className="inline-flex items-center gap-2 rounded-xl border border-emerald-200 bg-emerald-50/70 px-3 py-2 text-xs font-semibold text-[#0F2942] transition-colors hover:bg-emerald-100"
+              >
                 <User className="h-4 w-4 text-emerald-600" />
                 <span className="max-w-[130px] truncate">{displayName}</span>
-              </div>
+              </Link>
               {onSignOut && (
                 <button
                   type="button"
@@ -173,7 +178,13 @@ export default function Navbar({
           <div className="mt-4 flex flex-col gap-2 border-t border-slate-100 pt-4">
             {displayName ? (
               <div className="flex items-center justify-between rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-2.5 text-sm font-medium text-[#0F2942]">
-                <span className="truncate">{displayName}</span>
+                <Link
+                  href="/dashboard"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="truncate font-semibold hover:underline"
+                >
+                  {displayName} (Kabinet)
+                </Link>
                 {onSignOut && (
                   <button
                     type="button"

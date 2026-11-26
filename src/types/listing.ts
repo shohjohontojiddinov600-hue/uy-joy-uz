@@ -33,6 +33,7 @@ export interface Listing {
   floor?: string;
   student_gender?: StudentGender | null;
   available_spots?: number | null;
+  with_owner?: boolean | null;
   amenities: string[];
   images: string[];
   contact_phone: string;
@@ -45,6 +46,7 @@ export interface Listing {
 export interface FilterState {
   category: ListingCategory;
   city: string;
+  district?: string;
   minPrice: string;
   maxPrice: string;
   rooms: string;

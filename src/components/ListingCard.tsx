@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   ArrowRight,
   BadgeCheck,
@@ -13,6 +13,12 @@ import {
   Maximize2,
 } from "lucide-react";
 import { formatListingPrice } from "@/data/mockListings";
+import { useToast } from "@/components/ToastProvider";
+import {
+  FAVORITES_CHANGED_EVENT,
+  isFavoriteId,
+  toggleFavoriteId,
+} from "@/lib/favorites";
 import { Listing, ListingType } from "@/types/listing";
 
 interface ListingCardProps {
@@ -45,9 +51,17 @@ const GENDER_LABEL: Record<string, string> = {
 };
 
 export default function ListingCard({ listing, onSelect }: ListingCardProps) {
+  const { showToast } = useToast();
   const [currentImage, setCurrentImage] = useState(0);
   const [isFavorite, setIsFavorite] = useState(false);
   const [imgError, setImgError] = useState<Record<number, boolean>>({});
+
+  useEffect(() => {
+    setIsFavorite(isFavoriteId(listing.id));
+    const sync = () => setIsFavorite(isFavoriteId(listing.id));
+    window.addEventListener(FAVORITES_CHANGED_EVENT, sync);
+    return () => window.removeEventListener(FAVORITES_CHANGED_EVENT, sync);
+  }, [listing.id]);
 
   const totalImages = listing.images.length;
   const badge = BADGE_CONFIG[listing.category];
@@ -63,7 +77,10 @@ export default function ListingCard({ listing, onSelect }: ListingCardProps) {
   };
 
   return (
-    <article className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-xl hover:shadow-slate-200/60">
+    <article
+      onClick={() => onSelect(listing)}
+      className="group flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-xl hover:shadow-slate-200/60"
+    >
       {/* Image Carousel */}
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100">
         {!imgError[currentImage] ? (
@@ -105,7 +122,14 @@ export default function ListingCard({ listing, onSelect }: ListingCardProps) {
           type="button"
           onClick={(e) => {
             e.stopPropagation();
-            setIsFavorite((prev) => !prev);
+            const added = toggleFavoriteId(listing.id);
+            setIsFavorite(added);
+            showToast({
+              type: added ? "success" : "info",
+              message: added
+                ? "E'lon saqlanganlarga qo'shildi!"
+                : "E'lon saqlanganlardan olib tashlandi.",
+            });
           }}
           aria-label="Saralanganlarga qo'shish"
           className="absolute top-3 right-3 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 text-slate-600 shadow-sm backdrop-blur-sm transition-colors hover:bg-white hover:text-rose-500"
@@ -224,7 +248,10 @@ export default function ListingCard({ listing, onSelect }: ListingCardProps) {
 
             <button
               type="button"
-              onClick={() => onSelect(listing)}
+              onClick={(e) => {
+                e.stopPropagation();
+                onSelect(listing);
+              }}
               className="inline-flex items-center gap-1 rounded-xl bg-[#0F2942]/6 px-3.5 py-2 text-xs font-bold text-[#0F2942] transition-all hover:bg-emerald-500 hover:text-white"
             >
               <span>Batafsil</span>

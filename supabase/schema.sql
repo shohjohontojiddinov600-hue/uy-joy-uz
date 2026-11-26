@@ -75,6 +75,8 @@ CREATE TABLE IF NOT EXISTS public.listings (
   area_sqm NUMERIC NOT NULL CHECK (area_sqm > 0),
   student_gender TEXT CHECK (student_gender IS NULL OR student_gender IN ('boys', 'girls', 'any')),
   available_spots INT CHECK (available_spots IS NULL OR available_spots >= 0),
+  near_university TEXT,
+  with_owner BOOLEAN DEFAULT FALSE,
   amenities TEXT[] NOT NULL DEFAULT '{}',
   images TEXT[] NOT NULL DEFAULT '{}',
   contact_phone TEXT NOT NULL DEFAULT '',
@@ -147,4 +149,9 @@ CREATE POLICY "Foydalanuvchi o'z rasmini o'chira oladi"
     bucket_id = 'property-images'
     AND auth.uid() = owner
   );
+
+-- Mavjud jadvallarga yangi ustunlarni qo'shish (agar oldin yaratilgan bo'lsa)
+ALTER TABLE public.listings
+  ADD COLUMN IF NOT EXISTS near_university TEXT,
+  ADD COLUMN IF NOT EXISTS with_owner BOOLEAN DEFAULT FALSE;
 

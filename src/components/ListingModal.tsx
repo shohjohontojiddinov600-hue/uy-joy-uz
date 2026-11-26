@@ -124,6 +124,12 @@ export default function ListingModal({ listing, onClose }: ListingModalProps) {
                     {listing.available_spots} ta bo&apos;sh joy
                   </span>
                 )}
+              {listing.with_owner !== null &&
+                listing.with_owner !== undefined && (
+                  <span className="rounded-md bg-sky-50 px-2 py-0.5 text-xs text-sky-700 border border-sky-200">
+                    {listing.with_owner ? "Uy egasi bilan" : "Alohida (uy egasisiz)"}
+                  </span>
+                )}
             </div>
           )}
 
