@@ -349,11 +349,11 @@ export default function HomePage() {
         </div>
 
         {/* 3. ASOSIY PROMO BANNER (Navy & Gold Premium Hero Card) */}
-        <section className="relative mt-5 overflow-hidden rounded-3xl bg-[#081B33] bg-[url('/images/hero-bg.jpg')] bg-cover bg-center shadow-[0_14px_40px_-8px_rgba(8,27,51,0.45)] ring-1 ring-[#F59E0B]/25">
-          {/* Chap tomondan o'ngga to'q ko'k yoy/gradient qatlam — o'ngda bino ochiq ko'rinadi */}
+        <section className="relative mt-5 overflow-hidden rounded-3xl bg-[#081B33] bg-[url('/images/hero-bg.jpg')] bg-cover bg-right shadow-[0_14px_40px_-8px_rgba(8,27,51,0.45)] ring-1 ring-[#F59E0B]/25">
+          {/* Chap tomonda zich to'q ko'k gradient — o'ng tomondagi bino toza ko'rinadi */}
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-r from-[#081B33] via-[#081B33]/92 to-[#081B33]/15"
+            className="absolute inset-0 bg-gradient-to-r from-[#081B33] via-[#081B33] to-[#081B33]/10 sm:via-[#081B33]/95"
           />
 
           <div className="relative z-10 max-w-xl p-5 sm:p-8">

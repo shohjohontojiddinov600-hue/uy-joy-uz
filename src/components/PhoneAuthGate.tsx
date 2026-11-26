@@ -337,14 +337,32 @@ export default function PhoneAuthGate({
     const formattedTimer = `00:${String(timer).padStart(2, "0")}`;
 
     return (
-      <div className="relative flex min-h-screen flex-col items-center justify-center bg-[#081B33] bg-[url('/images/hero-bg.jpg')] bg-cover bg-center px-4 py-8">
-        {/* To'q ko'k shaffof qatlam — orqadagi rasm tiniq ko'rinib turishi uchun yengilroq */}
+      <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-gradient-to-br from-[#061325] via-[#0A1E38] to-[#061325] px-4 py-6 sm:px-6 lg:px-10">
+        {/* Yumshoq ambient nurlar */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-br from-[#07152B]/60 via-[#0B1F3A]/45 to-[#07152B]/65"
+          className="pointer-events-none absolute -top-24 -left-24 h-80 w-80 rounded-full bg-[#F59E0B]/10 blur-3xl"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-24 -bottom-24 h-80 w-80 rounded-full bg-[#1D61E7]/20 blur-3xl"
         />
 
-        <div className="relative z-10 w-full max-w-md rounded-3xl border border-white/25 bg-[#081B33]/65 p-6 text-white shadow-2xl backdrop-blur-xl sm:p-8">
+        <div className="relative z-10 flex w-full max-w-6xl flex-col items-center gap-6 lg:grid lg:grid-cols-12 lg:items-center lg:gap-10">
+          {/* Chap / Yuqori qism: Banner rasmi telefonda ham, kompyuterda ham to'liq kesilmasdan ko'rinadi */}
+          <div className="w-full lg:col-span-7">
+            <div className="overflow-hidden rounded-2xl border border-[#F59E0B]/25 bg-[#081B33] shadow-2xl shadow-black/40 sm:rounded-3xl">
+              <img
+                src="/images/hero-bg.jpg"
+                alt="Uy Joy Sotuv — Zamonaviy turar-joy majmuasi"
+                className="aspect-[16/9] w-full object-cover object-center"
+              />
+            </div>
+          </div>
+
+          {/* O'ng / Pastki qism: Ro'yxatdan o'tish va kirish kartochkasi */}
+          <div className="w-full max-w-md lg:col-span-5 lg:ml-auto">
+            <div className="rounded-3xl border border-white/15 bg-[#0B1F3A]/85 p-6 text-white shadow-2xl backdrop-blur-xl sm:p-8">
           {/* Logo va sarlavha */}
           <div className="flex flex-col items-center text-center">
             <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#F59E0B] to-[#D97706] text-slate-950 shadow-lg shadow-[#F59E0B]/30">
@@ -517,6 +535,8 @@ export default function PhoneAuthGate({
           <div className="mt-6 flex items-center justify-center gap-1.5 border-t border-white/15 pt-4 text-[11px] text-slate-300">
             <ShieldCheck className="h-4 w-4 text-[#F59E0B]" />
             <span>Ma&apos;lumotlaringiz xavfsiz himoyalangan</span>
+          </div>
+            </div>
           </div>
         </div>
       </div>
